@@ -25,11 +25,11 @@ Convars:
 
 ```
 CREATE TABLE IF NOT EXISTS playerloc (
-	id 		TINYINT 	UNSIGNED 	NOT NULL,
-	x 		SMALLINT 				NOT NULL,
-	y 		SMALLINT 				NOT NULL,
-	z 		SMALLINT 				NOT NULL,
-	angle 	SMALLINT 				NOT NULL,
+	id 	TINYINT 	UNSIGNED 	NOT NULL,
+	x 	SMALLINT 			NOT NULL,
+	y 	SMALLINT 			NOT NULL,
+	z 	SMALLINT 			NOT NULL,
+	angle 	SMALLINT 			NOT NULL,
 	speed 	SMALLINT	UNSIGNED 	NOT NULL,
 	ticknum INT 		UNSIGNED 	NOT NULL,
 	INDEX (id)
@@ -58,3 +58,4 @@ Convars:
 ## Running the plugin:
 
 Either compile the sp file with spcomp.exe after modifying to your liking, or drag and drop tickdb.smx into `\addons\sourcemod\plugins`
+
