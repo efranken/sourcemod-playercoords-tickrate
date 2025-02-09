@@ -4,7 +4,8 @@
 new Float:playerVelocity[3];
 new Float:PlayerfSpeed;
 new Float:posAng[3];
-new Float:posCoord[3]
+new Float:posCoord[3];
+
 new TickNum = 0;
 new Handle:dbWriteEnabled = INVALID_HANDLE;
 new Handle:PrintToChatEnabled = INVALID_HANDLE;
