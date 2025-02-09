@@ -1,8 +1,22 @@
 
 
-# Tickdb.sp
+# What is
 
- Sourcemod plugin that writes player coordinates, angle, and horizontal speed to a database each tick.
+SourceMod plugin that writes the first player's coordinates, angle, and horizontal speed to a database (`tickdb.sp`) or UDP stream (`tickudp.sp`)
+
+Database mod was the first pass at exfiltrating player data.  Using a database as a middle man to read from proved too slow.  UDP was the second pass, and is much faster for exfiltrating and reading player data.
+
+## UDP configuration
+
+Defaults to port 27016, broadcasts all traffic on 255.255.255.255 from all NICs on 0.0.0.0.  
+
+Requires SourceMod extension [sm-ext-socket](https://github.com/JoinedSenses/sm-ext-socket/releases/tag/v0.2).  To install:
+ - Copy  `socket.inc` from `sm-ext-socket-0.2/scripting/include/` to `(server root)/CSS/cstrike/addons/sourcemod/scripting/include`
+ - Copy `socket.ext.dll` from `sm-ext-socket-0.2/` to `(server root)/CSS/cstrike/addons/sourcemod/extensions`
+
+Convars:
+`sm_udp` enables/disables UDP transmission
+`sm_tick_print` enables/disables printing UDP message to chat
 
 ## Database configuration:
 
@@ -37,11 +51,10 @@ CREATE TABLE IF NOT EXISTS playerloc (
 		"pass" "ml" CHANGE THIS LINE TO YOUR PW
 	}
 ```
-
-  
+Convars:
+`sm_tick_db` enables/disables DB writing
+`sm_tick_print` enables/disables printing DB query to chat
 
 ## Running the plugin:
 
 Either compile the sp file with spcomp.exe after modifying to your liking, or drag and drop tickdb.smx into `\addons\sourcemod\plugins`
-
-By default, dbWriteEnabled and PrintToChatEnabled are both 1
